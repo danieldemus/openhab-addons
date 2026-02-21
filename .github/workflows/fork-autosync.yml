@@ -1,0 +1,15 @@
+name: Sync Fork with Upstream
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # Runs daily at 2:00 AM UTC
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  sync:
+    uses: danieldemus/actions/.github/workflows/fork-autosync.yaml@main'
+    permissions:
+      contents: write
+    with:
+      upstream_owner: openhab
+    secrets: inherit
